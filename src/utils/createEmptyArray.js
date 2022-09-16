@@ -1,0 +1,1 @@
+export const createEmptyArray = (arrayLength) => Array(arrayLength).fill(undefined);
