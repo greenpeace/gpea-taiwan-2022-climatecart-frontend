@@ -7,7 +7,7 @@ import { respondTo } from '../../utils/responsive';
 
 const SHARE_QUOTE = {
     avatar: imgUrl('/img/donation/share.jpeg'),
-    content: '「氣候雖衝擊著我們的生活，但我們還來得及挽回。」',
+    content: '「氣候變遷影響著我們的生活，而你手中的選票是扭轉未來的關鍵！和我們一同要求地方候選人提出氣候政見！」',
     author: {
         title: '綠色和平專案主任',
         name: '張皪心'
@@ -17,6 +17,12 @@ const SHARE_QUOTE = {
 const BriefContent = () => {
     return (
         <StyledBriefContent>
+
+            <div className="badge">
+                <span>現在單筆捐款 300 元（含以上），即可獲得綠色和平 Vote for Earth 限定徽章一枚！</span>
+                <img src={imgUrl('/img/donation/pin.png')} alt='Vote for Earth 限定徽章' />
+            </div>
+
             <h2>現在，你可以成為政見監督者</h2>
             <p>
                 在這個網站呈現的每一項政見，都是為了你我更好的未來而準備。<br />
@@ -55,7 +61,7 @@ const BriefContent = () => {
 
 const StyledBriefContent = styled.article`
     position: relative;
-    margin-top: 64px;
+    margin-top: 40px;
 
     h2 {
         &:first-child { margin-top: 0; }
@@ -91,7 +97,38 @@ const StyledBriefContent = styled.article`
     }
 
     ${ respondTo.md } {
-        margin-top: 40px;
+        margin-top: 24px;
+    }
+
+    .badge {
+        border-top: 2px solid var(--green-300);
+        border-bottom: 2px solid var(--green-300);
+        padding: 16px 0;
+
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        line-height: 1.5;
+
+        color: var(--primary);
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        img {
+            margin-left: 40px;
+            width: 120px;
+        }
+
+        ${ respondTo.sm } {
+            font-size: 16px;
+
+            img {
+                margin-left: 16px;
+                width: 80px;
+            }
+        }
     }
 `
 

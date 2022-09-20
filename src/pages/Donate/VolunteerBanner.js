@@ -9,7 +9,7 @@ const VolunteerBanner = ({ ...props }) => {
                 現在捐款 <b>$300 </b> 以上(含)支持綠色和平環境專案，我們將贈送 <b>限定版《Vote for Earth》紀念徽章</b> 予以感謝。
                 (寄送日期將於捐款後於電子郵件寄送領取通知)
             </p>
-            <img src={imgUrl("/img/donation/volunteer.png")} alt=''/>
+            <img src={imgUrl("/img/donation/volunteer.jpg")} alt=''/>
         </StyledContainer>
     )
 }
@@ -59,6 +59,10 @@ const StyledContainer = styled.div`
 
         ${respondTo.sm} {
             object-position: -50px;
+        }
+
+        ${respondTo.xs} {
+            object-position: -70px;
         }
     }
 `;
