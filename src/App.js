@@ -22,6 +22,7 @@ import Tutorials from './components/Tutorials';
 import ScrollToTopHelper from './components/ScrollToTopHelper';
 import WebsignHelper from './components/WebsignHelper';
 import MouseFX from './components/MouseFX';
+import UTMHelper from './components/UTMHelper';
 
 import { useBearStore } from './stores/cartStore';
 import apolloClient from './utils/apolloClient';
@@ -100,6 +101,7 @@ const App = () => {
                 <Tutorials />
                 <WebsignHelper />
                 <MouseFX />
+                <UTMHelper />
             </BrowserRouter>
         </ApolloProvider>
     );
