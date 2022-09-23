@@ -3,6 +3,7 @@ import styled, { css, keyframes } from 'styled-components';
 
 import { useAppStore } from '../../stores/appStore';
 import { useBearStore } from '../../stores/cartStore';
+import { imgUrl } from '../../utils/imgUrlWrapper';
 import { respondTo } from '../../utils/responsive';
 import Icons from '../Icons';
 import ModalPortal from '../ModalPortal';
@@ -102,7 +103,7 @@ const ResultImage = forwardRef((props, ref) => {
                                 editable={movable}
                             />
                             { showHint &&
-                                <img src='/img/result-image/edit-hint.png' alt='可以自由拖曳每一項政見'/>
+                                <img src={imgUrl('/img/result-image/edit-hint.png')} alt='可以自由拖曳每一項政見'/>
                             }
                         </div>
                         <EditorButtons>

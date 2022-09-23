@@ -56,7 +56,7 @@ const OrderCompleted = () => {
         // document.body.removeChild(link);
 
         var image = new Image();
-        image.src = resultImageData;
+        image.src = resultImageDataUrl;
 
         var w = window.open("");
         w.document.write(image.outerHTML);
