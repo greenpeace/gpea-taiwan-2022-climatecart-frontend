@@ -81,7 +81,7 @@ const OrderCompleted = () => {
     }
 
     function handleLineClick() {
-        openLinkWithNewTab('https://line.me/R/');
+        openLinkWithNewTab('https://line.me/R/nv/chat');
     }
 
     function handleCanvasLoaded() {
