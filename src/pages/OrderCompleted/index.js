@@ -73,15 +73,20 @@ const OrderCompleted = () => {
     }
 
     function handleFbClick() {
-        openLinkWithNewTab(
-            isMobile() ? 
-            'fb://facewebmodal': 
-            'https://www.facebook.com/'
-        );
+        const content = `我已經訂製喜歡的政見了！你也來挑選喜歡的好政見，一起為地球投票吧！\n👉 https://act.gp/3BJo02b`;
+        let link = 'https://www.facebook.com/share.php?u=' + encodeURIComponent('https://act.gp/3BJo02b') + (content ? `&quote=${encodeURIComponent(content)}` : '');
+        openLinkWithNewTab(link);
+        // openLinkWithNewTab(
+        //     isMobile() ? 
+        //     'fb://facewebmodal': 
+        //     'https://www.facebook.com/'
+        // );
     }
 
     function handleLineClick() {
-        openLinkWithNewTab('https://line.me/R/nv/chat');
+        const content = `我已經訂製喜歡的政見了！你也來挑選喜歡的好政見，一起為地球投票吧！\n👉 https://act.gp/3BJo02b`;
+        let link = `https://line.me/R/msg/text/?${encodeURIComponent(content)}`;
+        openLinkWithNewTab(link);
     }
 
     function handleCanvasLoaded() {

@@ -9,7 +9,7 @@ import { useBearStore } from '../../stores/cartStore';
 import { useAppStore } from '../../stores/appStore';
 import { useRemoteCountiesList } from '../../utils/useRemoteCountiesList';
 import { websign } from '../../utils/websign';
-import { sendPetitionTracking } from '../../utils/gtmHelpers';
+import { sendPetitionTracking, sendToFbq } from '../../utils/gtmHelpers';
 
 const TicketForm = ({ onCloseClick, onComplete }) => {
 
@@ -38,6 +38,7 @@ const TicketForm = ({ onCloseClick, onComplete }) => {
         onCloseClick();
 
         sendPetitionTracking('ticket', 'Petition Ticket');
+        sendToFbq('AddToCart', 'Petition Ticket');
 
         onComplete?.();
     }

@@ -22,7 +22,7 @@ import FORM_ERRORS from '../../constants/FORM_ERRORS';
 import { useBearStore } from "../../stores/cartStore";
 import { useAppStore } from "../../stores/appStore";
 import { withSubSlug } from "../../utils/withSubSlug";
-import { sendPetitionTracking } from "../../utils/gtmHelpers";
+import { sendPetitionTracking, sendToFbq } from "../../utils/gtmHelpers";
 
 const Checkout = () => {
 
@@ -84,6 +84,7 @@ const Checkout = () => {
         setFormData(data);
 
         sendPetitionTracking('signup', 'Petition Signup');
+        sendToFbq('Lead', 'Petition Signup');
         
         navigate(withSubSlug('/order-completed'));
     };

@@ -28,3 +28,16 @@ export function sendPetitionTracking(eventAction, contentCategory) {
     window.uetq.push('event', 'signup', { 'event_category': 'petitions', 'event_label': eventLabel, 'event_value': 0 });
 }
 
+export function sendToFbq(category_name, content_name) {
+    window.fbq?.(
+        'track',
+        category_name,
+        {
+            content_name: content_name,
+            content_ids: ['1234'],
+            content_type: 'product',
+            value: 1,
+            currency: 'USD'
+        }
+    );
+}

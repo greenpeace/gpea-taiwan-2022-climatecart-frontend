@@ -273,6 +273,7 @@ export const UPLOAD_WEBSIGN = gql`
         $campaignData2: String
         $campaignData3: String
         $campaignData4: String
+        $utmData: UtmData
     ) {
         websign(
             email: $email
@@ -285,6 +286,7 @@ export const UPLOAD_WEBSIGN = gql`
             campaignData2: $campaignData2
             campaignData3: $campaignData3
             campaignData4: $campaignData4
+            utmData: $utmData
         ) { 
             message, mode, key
         }
@@ -293,9 +295,9 @@ export const UPLOAD_WEBSIGN = gql`
 
 export const SYNC_SHOPPING_RECORD = gql`
     mutation Sync (
-        $key: String!, $products: String
+        $key: String!, $products: String, $utmData: UtmData
     ) {
-        sync(key: $key, products: $products) 
+        sync(key: $key, products: $products, utmData: $utmData) 
     }
 `
 
