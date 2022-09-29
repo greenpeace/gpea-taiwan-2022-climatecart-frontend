@@ -5,7 +5,6 @@
 * @return {[type]}            [description]
 */
 export function sendPetitionTracking(eventAction, contentCategory) {
-
     const eventLabel = '2022-climatecart';
 
     window.dataLayer = window.dataLayer || [];
@@ -18,11 +17,11 @@ export function sendPetitionTracking(eventAction, contentCategory) {
         'eventValue': undefined
     });
 
-    window.dataLayer.push({
-        'event': 'fbqEvent',
-        'contentName': eventLabel,
-        'contentCategory': contentCategory
-    });
+    // window.dataLayer.push({
+    //     'event': 'fbqEvent',
+    //     'contentName': eventLabel,
+    //     'contentCategory': contentCategory
+    // });
 
     window.uetq = window.uetq || [];
     window.uetq.push('event', 'signup', { 'event_category': 'petitions', 'event_label': eventLabel, 'event_value': 0 });

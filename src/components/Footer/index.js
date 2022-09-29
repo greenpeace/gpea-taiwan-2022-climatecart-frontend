@@ -22,7 +22,7 @@ const Footer = () => {
                         </ContactList>
                         <ContactList>
                             <ContactItem label='統一編號' value='26324671' />
-                            <ContactItem label='勸募許可' value='衛部救字第 1101363536 號' />
+                            <ContactItem label='勸募許可' value='衛部救字第 1111362940 號' />
                             <ContactItem label='立案字號' value='環署綜字第 1000044076 號' />
                         </ContactList>
                     </Contacts>
@@ -80,7 +80,7 @@ const StyledFooter = styled.footer`
     color: var(--white-100);
     font-size: 14px;
 
-    background-image: url(${ imgUrl('/img/footer-deco.svg') });
+    background-image: url(${imgUrl('/img/footer-deco.svg')});
     background-repeat: no-repeat;
     background-position: calc(100% - 16px) calc(100% - 16px);
     
@@ -114,14 +114,14 @@ const StyledFooter = styled.footer`
         }
     }
 
-    ${ respondTo.md } {
+    ${respondTo.md} {
         padding: 32px 16px;
         .sub-container {
             grid-template-columns: 1fr;
         }
     }
 
-    ${ respondTo.sm } {
+    ${respondTo.sm} {
         background-position: calc(100% - 16px) calc(100% - 64px);
         background-size: 30%;
     }
