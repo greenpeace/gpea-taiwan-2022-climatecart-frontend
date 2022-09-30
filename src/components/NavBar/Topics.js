@@ -65,7 +65,7 @@ const Topics = () => {
 const ProductItem = ({ id, name, image, onClick }) => (
     <StyledProductItem>
         <LinkWrapper to={`/product/${id}`} onClick={onClick} >
-            <img src={process.env.REACT_APP_STRAPI_URL + image} alt={name} />
+            <img src={image} alt={name} />
             <h4>{name}</h4>
         </LinkWrapper>
     </StyledProductItem>
@@ -120,7 +120,7 @@ const TopicItem = styled.li`
         ${hoverEffect};
     }
 
-    ${ respondTo.xl } {
+    ${respondTo.xl} {
         margin: 8px 20px;
     }
 
@@ -201,7 +201,7 @@ const ProductsList = styled.ul`
         }
     }
 
-    ${ respondTo.md } {
+    ${respondTo.md} {
         display: none;
     }
 `
