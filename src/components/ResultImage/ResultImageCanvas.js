@@ -8,20 +8,20 @@ import { respondTo } from '../../utils/responsive';
 import { shuffleArray } from '../../utils/shuffleArray';
 
 const ResultImageCanvas = ({
-    products = {}, productIds = [], 
-    bgId = 1, bgColorId = 1, 
+    products = {}, productIds = [],
+    bgId = 1, bgColorId = 1,
     pixelRatio = 1,
     editable = false,
-    defaultLayout = [], onLayoutChanged = () => {},
+    defaultLayout = [], onLayoutChanged = () => { },
     enabled = true,
     canvas = false,
-    onLoaded = () => {},
-    ...props 
+    onLoaded = () => { },
+    ...props
 }) => {
-    
+
     const domRef = useRef();
     const twoRef = useRef();
-    
+
     const itemsGroupRef = useRef();
     const bgBackSprintRef = useRef();
     const bgForeSprintRef = useRef();
@@ -46,27 +46,27 @@ const ResultImageCanvas = ({
 
     useEffect(() => {
         const dom = domRef.current; // eslint-disable-line
-        
+
         if (!dom) return;
         if (!editable || !enabled) return;
 
-        dom.addEventListener('pointerdown', handlePointerDown, {passive: false});
-        dom.addEventListener('pointerup', handlePointerUp, {passive: false});
-        dom.addEventListener('pointermove', handlePointerMove, {passive: false});
-        dom.addEventListener('pointerleave', handlePointerUp, {passive: false});
+        dom.addEventListener('pointerdown', handlePointerDown, { passive: false });
+        dom.addEventListener('pointerup', handlePointerUp, { passive: false });
+        dom.addEventListener('pointermove', handlePointerMove, { passive: false });
+        dom.addEventListener('pointerleave', handlePointerUp, { passive: false });
 
         return () => {
-            dom.removeEventListener('pointerdown', handlePointerDown, {passive: false});
-            dom.removeEventListener('pointerup', handlePointerUp, {passive: false});
-            dom.removeEventListener('pointermove', handlePointerMove, {passive: false});
-            dom.removeEventListener('pointerleave', handlePointerUp, {passive: false});
+            dom.removeEventListener('pointerdown', handlePointerDown, { passive: false });
+            dom.removeEventListener('pointerup', handlePointerUp, { passive: false });
+            dom.removeEventListener('pointermove', handlePointerMove, { passive: false });
+            dom.removeEventListener('pointerleave', handlePointerUp, { passive: false });
         }
     }, [editable, enabled])  // eslint-disable-line
 
     function setup() {
         const two = new Two({
             autostart: true,
-            type: canvas ? Two.Types.canvas: Two.Types.svg,
+            type: canvas ? Two.Types.canvas : Two.Types.svg,
             width: 375 * pixelRatio,
             height: 667 * pixelRatio,
         });
@@ -81,7 +81,7 @@ const ResultImageCanvas = ({
         // ====== background ======
         bgBackSprintRef.current = two.makeSprite(imgUrl(`/img/result-image/bg${bgId}-${bgColorId}.jpg`), two.width * 0.5, two.height * 0.5);
         bgBackSprintRef.current.scale = 0.5 * pixelRatio;
-        
+
         // ====== items ======
         const itemsGroup = two.makeGroup();
 
@@ -102,7 +102,7 @@ const ResultImageCanvas = ({
                 const productId = defaultLayout?.[i] ?? shuffledProductIds[i % productIds.length];
 
                 if (!productId) return;
-                const textureUrl = process.env.REACT_APP_STRAPI_URL + (
+                const textureUrl = (
                     products[productId]?.attributes.image?.data.attributes.formats.thumbnail?.url ?? products[productId]?.attributes.image?.data.attributes.url
                 );
 
@@ -116,22 +116,22 @@ const ResultImageCanvas = ({
                         gsap.fromTo(sprite, {
                             scale: 0,
                         }, {
-                            scale: 124.41 / sprite.width * pixelRatio, 
-                            duration: 0.3, 
+                            scale: 124.41 / sprite.width * pixelRatio,
+                            duration: 0.3,
                             delay: Math.random() * 0.3,
                             ease: Back.easeOut
                         });
-                    } 
+                    }
                     else {
                         sprite.scale = 124.41 / sprite.width * pixelRatio;
                     }
-                    
+
                     itemsGroup.add(sprite);
                     sprints[i] = sprite;
                     pointSprintIndexSheet[i] = i;
                     storedProductIds[i] = productId;
-                    
-                    loadedCount ++;
+
+                    loadedCount++;
 
                     if (loadedCount >= points.length) {
                         pointsRef.current = points;
@@ -142,7 +142,7 @@ const ResultImageCanvas = ({
                         onLoaded?.();
                     }
                 });
-            })    
+            })
         });
 
         itemsGroupRef.current = itemsGroup;
@@ -181,7 +181,7 @@ const ResultImageCanvas = ({
 
     function handlePointerMove(e) {
         if (e.cancelable) e.preventDefault();
-        
+
         const mouseVector = parsePointerPoint(e);
         let pointIndex = null;
 
@@ -220,21 +220,21 @@ const ResultImageCanvas = ({
     function syncSprintPositions() {
 
         sprintsRef.current.forEach((sprint, sprintIndex) => {
-            const pointIndex = pointSprintIndexSheetRef.current.findIndex( si => si === sprintIndex);
+            const pointIndex = pointSprintIndexSheetRef.current.findIndex(si => si === sprintIndex);
 
             if (
-                pointIndex < 0 || 
+                pointIndex < 0 ||
                 pointIndex === dragStateRef.current?.pointIndex
             ) return;
 
             if (
-                sprint.position.x === pointsRef.current[pointIndex].x && 
+                sprint.position.x === pointsRef.current[pointIndex].x &&
                 sprint.position.y === pointsRef.current[pointIndex].y
             ) return;
 
             if (!canvas) {
                 gsap.to(sprint.position, {
-                    ...pointsRef.current[pointIndex], 
+                    ...pointsRef.current[pointIndex],
                     duration: 0.2, ease: Back.easeOut
                 });
             } else {
@@ -269,7 +269,7 @@ const ResultImageCanvas = ({
     }
 
     return (
-        <StyledResultImage {...props} ref={domRef} editable={editable}/>
+        <StyledResultImage {...props} ref={domRef} editable={editable} />
     )
 }
 

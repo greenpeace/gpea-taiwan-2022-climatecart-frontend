@@ -20,9 +20,9 @@ const bubblePositions = [
     { x: 415, y: 200, size: 210 },
 ]
 
-const BubbleSelector = ({ 
-    onNextClick, topics = [], 
-    ...props 
+const BubbleSelector = ({
+    onNextClick, topics = [],
+    ...props
 }) => {
 
     const bubblesRef = useRef();
@@ -38,7 +38,7 @@ const BubbleSelector = ({
         }))
     }, [topics]);
 
-    const [ checkList, setCheckList ] = useState(new Array(bubbleItems.length).fill(false));
+    const [checkList, setCheckList] = useState(new Array(bubbleItems.length).fill(false));
 
     const fill3 = useMemo(() =>
         checkList.filter(item => item).length < 3
@@ -103,7 +103,7 @@ const BubbleSelector = ({
 
     function handleNextClick() {
         let selectedList = checkList
-            .map((checked, index) => checked && bubbleItems[index]?.id )
+            .map((checked, index) => checked && bubbleItems[index]?.id)
             .filter(item => item);
 
         onNextClick(selectedList)
@@ -115,8 +115,8 @@ const BubbleSelector = ({
             <Title>主題精選</Title>
 
             <div className="wording">
-                不滿意的，該從何開始改變？<br/>
-                點選 <b>3</b> 個最有感的關鍵字泡泡<br/>
+                不滿意的，該從何開始改變？<br />
+                點選 <b>3</b> 個最有感的關鍵字泡泡<br />
                 快速找到建構理想生活的重點政見
 
                 <GenerateButton onClick={handleNextClick} disabled={fill3}>
@@ -165,7 +165,7 @@ const Bubble = ({
             if (domRef.current.dataset['enter_completed']) {
                 domRef.current.style.transform = `translate(${Math.random() * 30 - 15}px, ${Math.random() * 30 - 15}px)`
                 domRef.current.style.transition = `transform ${rndMs}ms ease-in-out`
-                
+
                 if (window.innerWidth <= 576) {
                     domRef.current.style.transform = `translate(0px, 0px)`
                 }
@@ -183,7 +183,7 @@ const Bubble = ({
 
     return (
         <StyledBubble ref={domRef}
-            image={process.env.REACT_APP_STRAPI_URL + image} x={x} y={y} size={size}
+            image={image} x={x} y={y} size={size}
             disabled={disabled} checked={checked} onClick={onClick}
         >
             <div>{name}</div>
@@ -218,7 +218,7 @@ const StyledBubbleSelector = styled.div`
         font-size: 28px;
     }
 
-    ${ respondTo.xl } {
+    ${respondTo.xl} {
         height: max(56.25vw, 700px);
 
         .wording {
@@ -229,13 +229,13 @@ const StyledBubbleSelector = styled.div`
         }
     }
 
-    ${ respondTo.lg } {
+    ${respondTo.lg} {
         .wording {
             left: 65%;
         }
     }
 
-    ${ respondTo.md } {
+    ${respondTo.md} {
         padding: 48px 0;
         height: auto;
 
@@ -266,7 +266,7 @@ const BubbleBlock = styled.ul`
 
     transform-origin: 0% 100%;
 
-    ${ respondTo.md } {
+    ${respondTo.md} {
         margin-top: 28px;
         padding: 0 32px;
         position: relative;
@@ -404,7 +404,7 @@ const StyledBubble = styled.li`
         `
     }}
 
-    ${ respondTo.md } {
+    ${respondTo.md} {
         position: relative;
         width: calc(50vw - 32px - 12px);
         height: calc(50vw - 32px - 12px);
@@ -494,7 +494,7 @@ const GenerateButton = styled.button`
         }
     `}
 
-    ${ respondTo.md } {
+    ${respondTo.md} {
         margin-top: 24px;
 
         >.arrow {
@@ -514,7 +514,7 @@ const MobileButtonContainer = styled.div`
     display: flex;
     justify-content: center;
 
-    ${ respondFrom.md } {
+    ${respondFrom.md} {
         display: none;
         margin-top: 0px;
     }

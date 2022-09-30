@@ -28,12 +28,12 @@ const RecommandList = ({ products = [], topics = [] }) => {
         <StyledRecommandList>
             <Title>推薦訂製</Title>
             <ProductList as={isMobile ? MobileSlider : 'ul'}>
-                { products?.map(product => 
+                {products?.map(product =>
                     <ProductItem key={product.id} item={product} showTopics={false} showPreBuy={false} />
                 )}
             </ProductList>
             <TopicList>
-                { topics?.map(topic =>
+                {topics?.map(topic =>
                     <TopicItem key={topic.id} topic={topic} />
                 )}
             </TopicList>
@@ -48,7 +48,7 @@ const TopicItem = ({ topic }) => (
     <StyledTopicItem image={topic.attributes.banner_image.data.attributes.url}>
         <LinkWrapper to={`/topics/${topic.id}`}>
             <span>
-                { topic.attributes.name }
+                {topic.attributes.name}
                 <Icons.Arrow />
             </span>
         </LinkWrapper>
@@ -58,7 +58,7 @@ const TopicItem = ({ topic }) => (
 const MobileSlider = props => {
 
     const sliderRef = useRef();
-    const [ nowIndex, setIndex ] = useState(0);
+    const [nowIndex, setIndex] = useState(0);
 
     function handleBeforeChange(curr, next) {
         setIndex(next)
@@ -93,15 +93,15 @@ const ProductList = styled(Container)`
     gap: 48px 28px;
     list-style-type: none;
 
-    ${ respondTo.lg } {
+    ${respondTo.lg} {
         grid-template-columns: repeat(3, 1fr);
     }
 
-    ${ respondTo.md } {
+    ${respondTo.md} {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    ${ respondTo.sm } {
+    ${respondTo.sm} {
         margin-left: 0;
         margin-right: 0;
         width: 100vw;
@@ -124,7 +124,7 @@ const TopicList = styled(Container).attrs({ as: 'ul' })`
     grid-template-columns: repeat(3, 1fr);
     gap: 28px;
 
-    ${ respondTo.md } {
+    ${respondTo.md} {
         grid-template-columns: repeat(1, 1fr);
         gap: 20px;
     }
@@ -168,7 +168,7 @@ const StyledTopicItem = styled.li`
 
     ${({ image }) => image && css`
         &::before, &::after {
-            background-image: url(${process.env.REACT_APP_STRAPI_URL + image});
+            background-image: url(${image});
             background-size: 110%;
         }
     `}
@@ -202,7 +202,7 @@ const StyledTopicItem = styled.li`
         }
     }
 
-    ${ respondTo.sm } {
+    ${respondTo.sm} {
         height: 80px;
         font-size: 18px;
     }
