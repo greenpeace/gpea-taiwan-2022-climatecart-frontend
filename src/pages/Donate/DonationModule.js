@@ -9,7 +9,7 @@ const DonationModule = ({ ...props }) => {
     return (
         <StyledDonationModule {...props}>
             <Helmet>
-                <script src='https://api.greenpeace.org.hk/app/donation-module/main.js'/>
+                <script src='https://api.greenpeace.org.hk/app/donation-module/main.js' />
             </Helmet>
             <div
                 data-gpea-module="gpea-donation-module"
@@ -17,7 +17,7 @@ const DonationModule = ({ ...props }) => {
                 data-gpea-language='zh_TW'
                 data-gpea-campaign-id=''
                 data-gpea-env='production'
-                data-gpea-campaign='climate_cart'
+                data-gpea-campaign='climatecart'
                 data-gpea-formdata={JSON.stringify({
                     FirstName: formData?.firstName ?? '',
                     LastName: formData?.lastName ?? '',
