@@ -124,6 +124,7 @@ const StyledFooter = styled.footer`
     ${ respondTo.sm } {
         background-position: calc(100% - 16px) calc(100% - 64px);
         background-size: 30%;
+        margin-bottom: 52px;
     }
 
 `

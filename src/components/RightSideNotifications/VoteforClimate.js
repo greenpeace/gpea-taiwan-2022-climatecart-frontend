@@ -36,13 +36,16 @@ const VoteforClimate = () => {
 
     if (!donateNodification) return null;
 
+    if (isMobile) return (
+        <MobileLink to={withSubSlug('/donate')}>Vote For Climate</MobileLink>
+    )
+
     if (!homepageMatch) return (
-        isMobile ? 
-            <MobileLink to={withSubSlug('/donate')}>Vote For Climate</MobileLink>:
-            <CTAButton onClick={handleClick}>Vote for Climate</CTAButton>
+        <CTAButton onClick={handleClick}>Vote for Climate</CTAButton>
     )
 
     return (
+        
         <Panel ref={panelRef} onClick={handleClick}>
             <img src={imgUrl('/img/donate-badge.png')} alt="Vote For Climate 徽章" />
             <p>

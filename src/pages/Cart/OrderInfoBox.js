@@ -25,7 +25,7 @@ const OrderInfoBox = ({ total, carbonReduction, openSuggestionsModal, ...props }
                 <p className="carbon">
                     <span>
                         <Leaf />
-                        減碳力 
+                        減碳力相當於種下 
                     </span>
                     <span>
                         <strong>{numberWithCommas(carbonReduction)}</strong> 萬棵樟樹

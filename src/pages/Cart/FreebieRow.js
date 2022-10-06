@@ -31,7 +31,7 @@ const FreebieRow = ({ item, onAddbtnClick, isDisabled, ...props }) => {
                     <div className="info">
                         <h4>{name}</h4>
                         <p className="carbon">
-                            <Leaf />
+                            <Leaf /> 減碳力相當於種下
                             <strong>{numberWithCommas(carbon_reduction)}</strong>萬棵樟樹
                         </p>
                     </div>
@@ -160,6 +160,7 @@ const StyledContainer = styled.div`
     .carbon {
         display: flex;
         align-items: center;
+        flex-wrap: wrap;
 
         ${respondTo.lg} {
             font-size: 14px;

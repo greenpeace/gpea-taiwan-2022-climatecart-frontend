@@ -50,26 +50,26 @@ const VoteForClimate = () => {
     return (
         <StyledVoteForClimate>
             <Title>好友分享</Title>
-            <Subtitle>看看他們訂製的理想生活</Subtitle>
+            <Subtitle>他們都推薦政見選物所！</Subtitle>
             <SliderContainer>
                 <Slider {...currentSliderSetting}>
                     {kols.map((item, index) =>
                         <SliderItem key={index}>
                             <div className="image-container">
                                 <Image src={item.image} alt={item.name} />
-                                <div className="content">「{item.content}」</div>
+                                <div className="content" dangerouslySetInnerHTML={{ __html: item.content }}></div>
                             </div>
                             <div>
                                 <span className="name">{item.name}</span>｜<span>{item.title}</span>
-                                <div className="mobile-content">「{item.content}」</div>
+                                <div className="mobile-content" dangerouslySetInnerHTML={{ __html: item.content }}></div>
                             </div>
                         </SliderItem>
                     )}
                 </Slider>
             </SliderContainer>
             <CTAWord>
-                一起當地球隊！<br/>
-                捐款支持綠色和平<br className='-mobile-only'/>
+                一起當地球隊！<br />
+                捐款支持綠色和平<br className='-mobile-only' />
                 即贈<b>「Vote For Earth」</b>限量徽章
             </CTAWord>
             <Link to={withSubSlug('/donate')}>
@@ -115,7 +115,7 @@ const SliderContainer = styled.div`
     .slick-track {
         display: flex !important;
 
-        ${ respondTo.md } {
+        ${respondTo.md} {
             margin: 0;
         }
     }
@@ -142,19 +142,6 @@ const SliderItem = styled.div`
     ${respondTo.lg} {
         margin-right: 0;
     }
-
-    .mobile-content {
-        display: none;
-        
-        ${respondTo.lg} {
-            display: block;
-
-            font-size: 14px;
-            line-height: 20px;
-            margin-top: 12px;
-        }
-    }
-
 
     .image-container {
         position: relative;
@@ -196,6 +183,18 @@ const SliderItem = styled.div`
         }
     }
 
+    .mobile-content {
+        display: none;
+        
+        ${respondTo.lg} {
+            display: block;
+
+            font-size: 14px;
+            line-height: 20px;
+            margin-top: 12px;
+        }
+    }
+
     &:not(:hover) .content {
         opacity: 0;
         transform: translateY(4px);
@@ -222,7 +221,7 @@ const CTAWord = styled.div`
     }
 
     .-mobile-only {
-        ${ respondFrom.md } {
+        ${respondFrom.md} {
             display: none;
         }
     }

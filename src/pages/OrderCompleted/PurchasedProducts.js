@@ -79,7 +79,7 @@ const PurchasedProducts = ({ title = "查看您選擇的政見", myProducts = []
                 </div>
 
                 <div className="total-carbon">
-                    <span><Icons.Leaf />減碳力 </span>
+                    <span><Icons.Leaf />減碳力相當於種下 </span>
                     <span className='count'>
                         <b>{numberWithCommas(totalCarbon)}</b> 萬棵樟樹
                     </span>

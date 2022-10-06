@@ -31,7 +31,7 @@ const PurchasedProductItem = ({
                             <div className="price is--pc">{ priceDisplay }</div>
                         </div>
                         <div className="carbon_reduction">
-                            <Icons.Leaf />減碳力 <b>{numberWithCommas(carbon_reduction)}</b> 萬棵樟樹
+                            <Icons.Leaf />減碳力相當於種下 <b>{numberWithCommas(carbon_reduction)}</b> 萬棵樟樹
                         </div>
                     </div>
                     {onDeleteClick &&
@@ -60,7 +60,7 @@ const PurchasedProductItem = ({
                             <div className="price is--pc">{ priceDisplay }</div>
                         </div>
                         <div className="carbon_reduction">
-                            <Icons.Leaf />減碳力 <b>{numberWithCommas(totalCarbonReduction)}</b> 萬棵樟樹
+                            <Icons.Leaf />減碳力相當於種下 <b>{numberWithCommas(totalCarbonReduction)}</b> 萬棵樟樹
                         </div>
                     </div>
                     {onDeleteClick &&

@@ -81,7 +81,7 @@ const ProductCard = ({ product, className, ...props }) => {
                 <StyledMetaContainer>
                     <div className="meta">
                         <p>
-                            <Icons.Leaf /> 減碳力 <strong>{formatNumber(carbon_reduction)}</strong> 萬棵樟樹
+                            <Icons.Leaf /> 減碳力相當於種下 <strong>{formatNumber(carbon_reduction)}</strong> 萬棵樟樹
                         </p>
                         <ul>
                             {ratings.map((rating, id) => (
@@ -333,6 +333,7 @@ const StyledMetaContainer = styled.div`
         p {
             display: flex;
             align-items: flex-end;
+            flex-wrap: wrap;
         }
 
         strong {
