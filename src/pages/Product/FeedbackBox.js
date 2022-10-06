@@ -72,6 +72,7 @@ const StyledContainer = styled.div`
     }
 
     .info {
+        margin-top: 20px;
         display: flex;
         gap: 16px;
         justify-content: flex-end;

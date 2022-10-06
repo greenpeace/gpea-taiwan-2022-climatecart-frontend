@@ -6,8 +6,9 @@ import { respondTo } from '../../utils/responsive'
 import Dots from "../Dots"
 import TicketForm from "./TicketForm"
 
-export const steps = ({ onCloseClick }) => [
-    <TutorialsSlideShow />,
+export const steps = ({ onCloseClick, onNextStepClick }) => [
+    <IntroImage src={imgUrl('/img/intro-image.svg')} alt='為你想要的世界投票' onClick={onNextStepClick} />,
+    // <TutorialsSlideShow />,
     <TicketForm onCloseClick={onCloseClick} />
 ]
 
@@ -58,6 +59,12 @@ const StyledDots = styled(Dots)`
     width: 100%;
 `
 
+const IntroImage = styled.img`
+    width: 100%;
+    cursor: pointer;
+`
+
+
 const fadeIn = keyframes`
     from {
         opacity: 0;
@@ -98,16 +105,9 @@ export const stepsStyle = css`
         animation: ${ fadeIn } .3s ease-out forwards;
     }
 
-    img, .img {
-        display: block;
-        margin: 0 auto;
-        margin-top: 28px;
-        border-radius: 6px;
-    }
-
-    .img {
-        width: 300px;
-        height: 248px;
+    img {
+        width: 100%;
+        height: auto;
     }
 
     h3 {
@@ -141,14 +141,4 @@ export const stepsStyle = css`
 
     }
 
-    svg, img {
-        margin-top: 24px;
-        width: 300px;
-        height: 248px;
-        object-fit: contain;
-
-        ${respondTo.lg} {
-            width: 100%;
-        }
-    }
 `

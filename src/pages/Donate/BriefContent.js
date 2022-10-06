@@ -18,10 +18,9 @@ const BriefContent = () => {
     return (
         <StyledBriefContent>
 
-            <div className="badge">
-                <span>現在單筆捐款 300 元（含以上），即可獲得綠色和平 Vote for Earth 限定徽章一枚！</span>
-                <img src={imgUrl('/img/donation/pin.png')} alt='Vote for Earth 限定徽章' />
-            </div>
+            <VolunteerBanner image='/img/donation/pin.jpg' alt='Vote for Earth 限定徽章'>
+                現在單筆捐款 300 元（含以上），即可獲得綠色和平 Vote for Earth 限定徽章一枚！
+            </VolunteerBanner>
 
             <h2>現在，你可以成為政見監督者</h2>
             <p>
@@ -29,9 +28,12 @@ const BriefContent = () => {
                 選舉期間候選人們五光十色的宣傳、口號，是否真的能夠兌現承諾？無論最後是誰當選，都將影響我們四年甚至更長遠的生活。<br /><br />
                 綠色和平 100% <b>不接受政府、企業資助，以維持公正獨立</b>。邀請你捐款加入我們，一起監督政府、審視候選人，為臺灣的未來做把關，用公民的力量推動正向改變，邁向你最理想的美好未來。
             </p>
-            <img className="img" src={imgUrl('/img/donation/content-1.svg')} alt='' />
+            <img className="img" src={imgUrl('/img/donation/content-1.svg')} alt='現在，你可以成為政見監督者' />
 
-            <VolunteerBanner />
+            <VolunteerBanner image='/img/donation/volunteer.jpg' alt='限定版《Vote for Earth》紀念徽章'>
+                現在捐款 <b>$300 </b> 以上(含)支持綠色和平環境專案，我們將贈送 <b>限定版《Vote for Earth》紀念徽章</b> 予以感謝。
+                (寄送日期將於捐款後於電子郵件寄送領取通知)
+            </VolunteerBanner>
 
             <h2>不要小看你的力量！</h2>
             <p>
@@ -39,7 +41,7 @@ const BriefContent = () => {
                 在全球，推動中國、日本、韓國相繼承諾碳中和目標；更成功推動東亞設定停止生產燃油車時程；參與氣候訴訟促使 SHELL 殼牌石油公司被荷蘭法院判定須於 2030 年減碳 45%。<br /><br />
                 現在，<b>當你使用好政券支持特定政見，這樣的支持會匯聚成為具體的力量，讓未來綠色和平在推動環境專案時有更大的助力；也讓政府與各縣市執政者無法輕忽。</b>
             </p>
-            <img className="img" src={imgUrl('/img/donation/content-2.svg')} alt='' />
+            <img className="img" src={imgUrl('/img/donation/content-2.svg')} alt='不要小看你的力量！' />
 
             <h2>具體行動拯救氣候</h2>
             <p>
@@ -51,7 +53,7 @@ const BriefContent = () => {
                 <b>設立地方自治條例</b><br/>
                 設立氣候法相關的修訂及地方自治條例，持續進行倡議及施壓，特別是要求在全球舉足輕重的臺灣製造業減少碳排放，讓臺灣在淨零轉型上開闢出可供世界效仿的制度。
             </p>
-            <img className="img" src={imgUrl('/img/donation/content-3.svg')} alt='' />
+            <img className="img" src={imgUrl('/img/donation/content-3.svg')} alt='具體行動拯救氣候' />
 
             <Quote {...SHARE_QUOTE} />
 

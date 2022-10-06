@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef, useMemo } from 'react';
+import { useEffect, useState, useRef, useMemo, Fragment } from 'react';
 import styled, { css } from 'styled-components';
 import Slider from 'react-slick';
 import gsap from 'gsap';
@@ -24,7 +24,7 @@ const Tutorials = () => {
     const injectedStep = useMemo(() =>
         showTicketForm ?
             [<TicketForm onCloseClick={close} />]:
-            steps({ onCloseClick: close })
+            steps({ onCloseClick: close, onNextStepClick: handleNextClick })
         , [showTicketForm]); // eslint-disable-line
 
     useEffect(() => {
@@ -86,24 +86,25 @@ const Tutorials = () => {
     return (
         <Mask ref={maskRef} onClick={close}>
             <div className='outer' onClick={handlePanelClick}>
-                <Panel ref={panelRef}>
+                <Panel ref={panelRef} bg={nowStep === injectedStep.length - 1}>
                     <StyledSlider
+                        speed={0}
                         arrows={false} dots={false} infinite={false}
                         slidesToShow={1} slidesToScroll={1} adaptiveHeight={true}
                         ref={sliderRef} beforeChange={handleBeforeChange}
                     >
                         {injectedStep.map((step, index) =>
-                            <SlideItem key={index}>
+                            <Fragment key={index}>
                                 {step}
-                            </SlideItem>
+                            </Fragment>
                         )}
                     </StyledSlider>
                 </Panel>
 
                 {( nowStep < 1 && injectedStep.length > 1) && <>
                     {/* <Dots length={injectedStep.length} nowIndex={nowStep} onClick={handleDotsClick} /> */}
-                    {nowStep > 0 && <ArrowButton prev onClick={handlePrevClick}><Icons.Arrow /></ArrowButton>}
-                    {nowStep < injectedStep.length - 1 && <ArrowButton next onClick={handleNextClick}><Icons.Arrow /></ArrowButton>}
+                    {/* {nowStep > 0 && <ArrowButton prev onClick={handlePrevClick}><Icons.Arrow /></ArrowButton>} */}
+                    {/* {nowStep < injectedStep.length - 1 && <ArrowButton next onClick={handleNextClick}><Icons.Arrow /></ArrowButton>} */}
                 </>}
 
             </div>
@@ -152,6 +153,11 @@ const Panel = styled.div`
         max-width: 520px;
         padding-top: 32px;
     }
+
+    ${p => !p.bg && css`
+        background: transparent;
+        backdrop-filter: none;
+    `}
 `
 
 const ArrowButton = styled.button`
@@ -214,7 +220,7 @@ const StyledSlider = styled(Slider)`
     }
 `
 
-const SlideItem = styled.div`
+export const SlideItem = styled.div`
     width: 100%;
     padding: 0 40px;
 

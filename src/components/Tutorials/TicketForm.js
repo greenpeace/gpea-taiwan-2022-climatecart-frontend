@@ -10,6 +10,7 @@ import { useAppStore } from '../../stores/appStore';
 import { useRemoteCountiesList } from '../../utils/useRemoteCountiesList';
 import { websign } from '../../utils/websign';
 import { sendPetitionTracking, sendToFbq } from '../../utils/gtmHelpers';
+import { SlideItem } from '.';
 
 const TicketForm = ({ onCloseClick, onComplete }) => {
 
@@ -44,7 +45,7 @@ const TicketForm = ({ onCloseClick, onComplete }) => {
     }
 
     return (
-        <>
+        <SlideItem>
             <h2>即刻訂製理想生活</h2>
             <p>填寫下列資訊，領取「好政券」：</p>
             <StyledTicketForm onSubmit={handleSubmit(onSubmit)} disabled={submiting}>
@@ -73,7 +74,7 @@ const TicketForm = ({ onCloseClick, onComplete }) => {
                     <Button type='submit'>領券開始</Button>
                 </Buttons>
             </StyledTicketForm>
-        </>
+        </SlideItem>
     )
 }
 

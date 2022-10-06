@@ -39,8 +39,8 @@ const themes = {
         transition: background-color .2s, color .2s, outline-color .3s;
 
         &:hover {
-            background: rgba(255, 255, 255, 1);
-            color: var(--black);
+            background: linear-gradient(90deg, var(--green-200) 0%, var(--primary) 100%);
+            color: var(--white);
         }
     `
 }

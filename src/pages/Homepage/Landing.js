@@ -84,8 +84,8 @@ const StyledLanding = styled.div`
     height: min(900px, 100vh - 200px);
     min-height: 600px;
 
-    ${respondTo.lg} {
-        height: 530px;
+    ${respondTo.sm} {
+        height: 160vw;
     }
 
     #svg-kv-bubble-01, 
@@ -125,6 +125,10 @@ const StyledLanding = styled.div`
             padding-left: 20px;
             padding-top: 28px;
             justify-content: flex-start;
+        }
+
+        ${ respondTo.sm} {
+            margin-top: 40px;
         }
     }
 

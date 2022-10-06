@@ -28,7 +28,8 @@ const themes = {
         color: var(--black);
 
         &:hover {
-            background: var(--white-100);
+            background: linear-gradient(90deg, var(--green-200) 0%, var(--primary) 100%);
+            color: var(--white);
         }
     `,
     'white': css`

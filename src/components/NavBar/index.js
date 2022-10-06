@@ -94,8 +94,8 @@ const NavBar = () => {
         if (ticketsCount >= 5) {
             setTicketMessage({
                 message: '您已獲得 5 張好政券囉!\n馬上去逛逛吧！',
-                buttonLabel: '前往訂製',
-                buttonToPath: '/products'
+                buttonLabel: '開始訂製',
+                buttonToPath: null
             });
         }
         else if (ticketsCount > 0) {
@@ -122,7 +122,9 @@ const NavBar = () => {
     }
 
     function handleGoShoppingButtonClick() {
-        navigate(withSubSlug(ticketMessage.buttonToPath));
+        if (ticketMessage.buttonToPath) {
+            navigate(withSubSlug(ticketMessage.buttonToPath));
+        }
         setTicketMessage(null);
     }
 

@@ -16,14 +16,14 @@ function getUtmData() {
 }
 
 export async function websign(data) {
-    
+
     const res = await apolloClient.mutate({
         mutation: UPLOAD_WEBSIGN,
         variables: {
             ...data,
             utmData: getUtmData()
         },
-    }) 
+    })
 
     return res?.data?.websign;
 }
@@ -32,12 +32,12 @@ export async function syncShoppingRecord(key, productsString) {
 
     const res = await apolloClient.mutate({
         mutation: SYNC_SHOPPING_RECORD,
-        variables: { 
-            key, 
-            products: productsString, 
+        variables: {
+            key,
+            products: productsString,
             utmData: getUtmData()
         }
-    }) 
+    })
 
     return res;
 }
