@@ -18,14 +18,14 @@ const OrderCompleted = () => {
 
     const { myProducts, myBundles, myFreebies } = useBearStore(state => state.myCheckouts);
     const { clearMyFreebies, clearMyCollections, removeFromMyProducts, removeFromMyBundles, products } = useBearStore();
-    const { resultImageData } = useAppStore();
+    const { formData, resultImageData } = useAppStore();
 
-    const [ resultImageDataUrl, setResultImageDataUrl ] = useState(null);
-    const [ downloaded, setDownloaded ] = useState(true);
+    const [resultImageDataUrl, setResultImageDataUrl] = useState(null);
+    const [downloaded, setDownloaded] = useState(true);
 
     const productIds = useMemo(() => {
-        return [ ...myProducts.map(product => ~~product.id), ...myFreebies.map(product => ~~product.id)] 
-    }, [ myProducts, myFreebies ]);
+        return [...myProducts.map(product => ~~product.id), ...myFreebies.map(product => ~~product.id)]
+    }, [myProducts, myFreebies]);
 
     useEffect(() => {
         clearAllState();
@@ -129,9 +129,12 @@ const OrderCompleted = () => {
                     <Icons.OrderCompleted />
                     <h2>您訂製的理想生活正在路上...</h2>
                     <p>
-                        感謝您造訪綠色和平的政見選物所<br/>
+                        感謝您造訪綠色和平的政見選物所<br />
                         您所選擇的政見，有助於實踐低碳永續的理想生活：
                     </p>
+                    <div style={{ display: "none" }} className="custEmail">
+                        {formData.email}
+                    </div>
                 </Wording>
                 <StyledPurchasedProducts
                     myProducts={myProducts}

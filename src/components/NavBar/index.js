@@ -25,17 +25,17 @@ const NavBar = () => {
     const prevTicketsCount = useRef(0);
 
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
-    
-    const [ ticketMessage, setTicketMessage ] = useState(null);
-    
+
+    const [ticketMessage, setTicketMessage] = useState(null);
+
     const location = useLocation();
     const navigate = useNavigate();
     const { headerDomRef } = useHeaderScrollHandler({ navHeight: 164 });
     const myProducts = useBearStore(state => state.myProducts);
     const myTickets = useBearStore(state => state.myTickets);
     const topics = useBearStore(state => state.topics);
-    const { ticketsGot, setShowTicketForm } = useAppStore();
-    
+    const { formData, ticketsGot, setShowTicketForm } = useAppStore();
+
     const showTopics = useMemo(() =>
         location.pathname === '/products' ||
         location.pathname.includes("/topics") ||
@@ -93,7 +93,7 @@ const NavBar = () => {
 
         if (ticketsCount >= 5) {
             setTicketMessage({
-                message: '您已獲得 5 張好政券囉!\n馬上去逛逛吧！',
+                message: `您已獲得 5 張好政券囉!\n馬上去逛逛吧！<div style="display:none;" className="custEmail"> ${formData.email} </div > `,
                 buttonLabel: '開始訂製',
                 buttonToPath: null
             });
@@ -162,11 +162,11 @@ const NavBar = () => {
 
             {showTopics && <Topics />}
 
-            { ticketMessage &&
+            {ticketMessage &&
                 <ModalPortal isVisible={true} onClickAway={handleTicketAwayClick}>
                     <TicketMessage>
-                        <div className="content">{ ticketMessage.message }</div>
-                        <ButtonWithIcon theme='white' onClick={handleGoShoppingButtonClick}>{ ticketMessage.buttonLabel }</ButtonWithIcon>
+                        <div className="content" dangerouslySetInnerHTML={{ __html: ticketMessage.message }}></div>
+                        <ButtonWithIcon theme='white' onClick={handleGoShoppingButtonClick}>{ticketMessage.buttonLabel}</ButtonWithIcon>
                     </TicketMessage>
                 </ModalPortal>
             }
