@@ -13,6 +13,7 @@ import RatingRow from "../../pages/Topics/RatingRow";
 import LinkWrapper from "../LinkWrapper";
 import PriceText from '../PriceText';
 import { shareToFB, shareToLine } from "../../utils/socialMediaShare";
+import PEOPLE_COUNT_OF_ITEM from '../../constants/PEOPLE_COUNT_OF_ITEM';
 
 const ProductCard = ({ product, className, ...props }) => {
     const location = useLocation();
@@ -106,7 +107,7 @@ const ProductCard = ({ product, className, ...props }) => {
                         {/* <p className="label">理想生活實踐價</p> */}
                         <PriceText className="price-text" price={price} />
                         <p className='bought-count'>
-                            已有<strong>{ formatNumber(fakePurchasedNum) }</strong>人訂製這項政見
+                            已有<strong>{formatNumber(PEOPLE_COUNT_OF_ITEM[id]["value"])}</strong>人訂製這項政見
                         </p>
                     </div>
                     <div className="cta">
@@ -195,7 +196,7 @@ const ImageContainer = styled.div`
         height: auto;
     }
 
-    ${ respondTo.lg } {
+    ${respondTo.lg} {
         width: 50%;
     }
 
@@ -262,7 +263,7 @@ const StyledPriceContainer = styled.div`
             letter-spacing: 0.05em;
             font-weight: 500;
 
-            ${ respondTo.sm } {
+            ${respondTo.sm} {
                 font-size: 18px;
                 line-height: 24px;
             }
@@ -289,7 +290,7 @@ const StyledPriceContainer = styled.div`
         align-items: flex-end;
         gap: 12px;
 
-        ${ respondTo.md } {
+        ${respondTo.md} {
             justify-content: flex-end;
         }
 
@@ -300,7 +301,7 @@ const StyledPriceContainer = styled.div`
         }
     }
 
-    ${ respondTo.pad } {
+    ${respondTo.pad} {
         flex-direction: column;
         gap: 24px;
 
