@@ -51,7 +51,7 @@ const Checkout = () => {
     const counties = useRemoteCountiesList();
 
     const birthYearOptions = useMemo(() => {
-        const start = 1970;
+        const start = 1950;
         const end = new Date().getFullYear() + 1;
         return new Array(end - start)
             .fill(0)
