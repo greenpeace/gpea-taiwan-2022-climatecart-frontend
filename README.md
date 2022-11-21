@@ -68,3 +68,51 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+# How to deploy to GP server
+
+## prepare before start
+
+create .env file to setting configs
+
+```
+--- build/
+ |- public/
+ |- src/
+ |- .env.example
+ |- .env.production.local (create manually, copy the .env.example and name new file as .env.production.local)
+ |- .env.development.local (create manually)
+ |- package.json
+ |- README.md
+ |- server.js
+ |- yarn.lock
+```
+
+## deploy a test page
+
+1. edit `.env.production.local` file, set test config
+
+```
+    PUBLIC_URL=https://change.greenpeace.org.tw/2022/test/politic-select-shop
+    REACT_APP_SUB_SLUG=2022/test/politic-select-shop
+```
+
+2. run `npm run build`
+
+3. upload all the files in build/ folder to replace the same files on remote server
+
+   - remote server : sftp.greenpeace.org.tw
+   - username : gpeatw_change
+   - remote folder path : see PUBLIC_URL
+
+4. after finish the upload process, you can check the test page with PUBLIC_URL
+
+## deploy a formal page
+
+steps are as same as deploy a test page.
+config of `.env.production.local` file:
+
+```
+    PUBLIC_URL=https://change.greenpeace.org.tw/2022/petition/climatecart
+    REACT_APP_SUB_SLUG=2022/petition/climatecart
+```
