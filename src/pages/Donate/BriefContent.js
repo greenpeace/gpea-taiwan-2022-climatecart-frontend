@@ -18,9 +18,9 @@ const BriefContent = () => {
     return (
         <StyledBriefContent>
 
-            <VolunteerBanner image='/img/donation/pin.jpg' alt='Vote for Earth 限定徽章'>
+            {/* <VolunteerBanner image='/img/donation/pin.jpg' alt='Vote for Earth 限定徽章'>
                 現在單筆捐款 300 元（含以上），即可獲得綠色和平 Vote for Earth 限定徽章一枚！
-            </VolunteerBanner>
+            </VolunteerBanner> */}
 
             <h2>現在，你可以成為政見監督者</h2>
             <p>
@@ -30,10 +30,10 @@ const BriefContent = () => {
             </p>
             <img className="img" src={imgUrl('/img/donation/content-1.svg')} alt='現在，你可以成為政見監督者' />
 
-            <VolunteerBanner image='/img/donation/volunteer.jpg' alt='限定版《Vote for Earth》紀念徽章'>
+            {/* <VolunteerBanner image='/img/donation/volunteer.jpg' alt='限定版《Vote for Earth》紀念徽章'>
                 現在捐款 <b>$300 </b> 以上(含)支持綠色和平環境專案，我們將贈送 <b>限定版《Vote for Earth》紀念徽章</b> 予以感謝。
                 (寄送日期將於捐款後於電子郵件寄送領取通知)
-            </VolunteerBanner>
+            </VolunteerBanner> */}
 
             <h2>不要小看你的力量！</h2>
             <p>

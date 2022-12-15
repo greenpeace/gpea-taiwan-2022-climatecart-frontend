@@ -52,7 +52,7 @@ const RightSideNotifications = ({ moreMarginTop = false }) => {
     return (
         <StyledRightSideNotifications ref={rootRef}>
             <NotificationsContainer ref={containerRef} moreMarginTop={moreMarginTop}>
-                <VoteforClimate />
+                {/* <VoteforClimate /> */}
                 {/* { !ticketsGot &&
                     <CTAButton onClick={handleTicketButtonClick}>我要領券</CTAButton>
                 } */}

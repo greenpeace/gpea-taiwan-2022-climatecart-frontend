@@ -14,8 +14,8 @@ const NextBig = () => {
                     讓理想的氣候與環境，真實兌現
                 </p>
             </div>
-            <StyledElectionCountdown />
-            <ElectionDay>選舉投票日：2022 年 11 月 26 日</ElectionDay>
+            {/* <StyledElectionCountdown />
+            <ElectionDay>選舉投票日：2022 年 11 月 26 日</ElectionDay> */}
             <QuoteBlock>
                 <p className='wording'>
                     為你想要的世界投票<br />
