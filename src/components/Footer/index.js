@@ -18,7 +18,7 @@ const Footer = () => {
                         <ContactList>
                             <ContactItem label='Email' value=' inquiry.tw@greenpeace.org' />
                             <ContactItem label='電話' value='(02) 2361 2351' />
-                            <ContactItem label='地址' value='臺北市中正區重慶南路一段 109 號' />
+                            <ContactItem label='地址' value='臺北市松山區復興北路365號11樓' />
                         </ContactList>
                         <ContactList>
                             <ContactItem label='統一編號' value='26324671' />
